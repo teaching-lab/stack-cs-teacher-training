@@ -1,0 +1,122 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage}
+\usepackage{cmap}		% Make PDF file search­able and copy­able (ASCII characters)
+\usepackage{lmodern}	% Make PDF file search­able and copy­able (Accented characters)
+\usepackage[T1]{fontenc}	% Hyphenate accented words
+\usepackage{inconsolata}
+\usepackage{amsmath,amsfonts,amssymb} % Mathematics
+\usepackage[protrusion]{microtype}	% Better typeset results
+\usepackage[autostyle,english=american]{csquotes}
+\usepackage[table]{xcolor}
+\usepackage{enumitem}
+\usepackage{pbox}
+
+\pagenumbering{gobble}
+
+% Typesetting code
+\definecolor{base-blue}{RGB}{13, 91, 201}
+\definecolor{keywords}{RGB}{129, 19, 8} % red
+\definecolor{identifiers}{RGB}{19, 8, 129} % blue
+\definecolor{strings}{RGB}{8, 129, 19} % green
+\definecolor{comments}{RGB}{104, 104, 110} % gray
+\definecolor{error}{RGB}{220, 50, 47} % bright red
+\usepackage{listings}	% listlisting environment
+\usepackage{upquote}
+\lstset{
+  basicstyle=\ttfamily\small\bfseries,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  commentstyle=\ttfamily\color{comments}\bfseries,
+  escapeinside={\$}{)},
+  identifierstyle=\color{identifiers},
+  keywordstyle=\ttfamily\color{keywords},
+  language=Python,
+  mathescape=true
+  numbers=none,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  stringstyle=\ttfamily\color{strings},
+  tabsize=2,
+  aboveskip=-0.3em,
+  belowskip=-0.3em,
+  xleftmargin=2.15em,
+}
+% Frames around code lstlistings
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{etoolbox}
+\mdfdefinestyle{listingstyle}{%
+	innerleftmargin=0pt,
+	innerrightmargin=0pt,
+	rightmargin=0pt,
+	linewidth=0pt,
+	backgroundcolor=base-blue!5!white,
+}
+\BeforeBeginEnvironment{lstlisting}{\begin{mdframed}[style=listingstyle]}
+\AfterEndEnvironment{lstlisting}{\end{mdframed}}
+
+\def\arraystretch{1.5}
+
+\title{\textbf{Introductory Python Programming}}
+\author{}
+\date{}
+
+\begin{document}
+
+\setlist[itemize]{itemsep=0ex}
+
+\vspace*{-1.35cm}
+\noindent
+Program a simulator of a simple game of the type ``Mensch ärgere Dich nicht'':
+
+\begin{verbatim}
+https://en.wikipedia.org/wiki/Mensch_%C3%A4rgere_Dich_nicht
+\end{verbatim}
+
+\begin{itemize}
+\item Play with one piece on a game board with size $n\in\{1, 2, 3, \dots\}$ squares.
+\item The starting position is the 0th square (outside the board), the ending position is the $n$th square.
+\item You roll a single dice with values from 1 to 6.
+\begin{itemize}
+\item The piece moves by the rolled number of squares (not outside the board).
+\item If 6 is rolled, the roll repeats (within the same round).
+\item If 6 is rolled, but the movement of the piece would end outside the board, the round ends.
+\item If 6 and then X is rolled, but the movement of 6 + X would end outside the board, the round ends (even if movement by 6 would be possible).
+\item If three 6s are rolled in a row, the round ends and the piece moves to the starting position.
+\end{itemize}
+\item The game ends when the piece exactly reaches the ending position.
+\end{itemize}
+The main function is \texttt{game(board\_size, print\_state=True, probability\_of\_six=1/6)}.
+
+\begin{itemize}
+\item \texttt{board\_size} corresponds to the $n$ mentioned above.
+\item \texttt{print\_state} controls verbosity. If it is \texttt{True}, the function prints the text on the screen and does not return anything. If it is \texttt{False}, the function does not print anything and returns the length of the game (the number of rounds until the finish).
+\item \texttt{probability\_of\_six} sets the chance of rolling 6 (other probabilities are uniform).
+\end{itemize}
+Example game run and output:
+
+\begin{lstlisting}[deletekeywords={in,round}]
+>>> game(20)
+Round 1 -- Roll: 6 5 
+I am on position 11
+Round 2 -- Roll: 6 5 
+I am on position 11
+Round 3 -- Roll: 5 
+I am on position 16
+Round 4 -- Roll: 5 
+I am on position 16
+Round 5 -- Roll: 2 
+I am on position 18
+Round 6 -- Roll: 4 
+I am on position 18
+Round 7 -- Roll: 2 
+I am on position 20
+Game finished in Round 7.
+>>> game(20, False)
+11
+\end{lstlisting}
+
+\end{document}
