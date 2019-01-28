@@ -17,8 +17,8 @@ The students review program code. They then share their reviews and discuss prop
 
 ## Setup and preparation
 
-* Print the [task](activities/code-review/code/task.pdf) N/2 times, where N is the number of students.
-* Print the four sample solutions: [1](activities/code-review/code/code1.pdf), [2](activities/code-review/code/code2.pdf), [3](activities/code-review/code/code3.pdf), and [4](activities/code-review/code/code4.pdf), each approximately N/4 times.
+* Print the [task](task.pdf) N/2 times, where N is the number of students.
+* Print the four sample solutions: [1](code/code1.pdf), [2](code/code2.pdf), [3](code/code3.pdf), and [4](code/code4.pdf), each approximately N/4 times.
 * Side note: The PDFs were generated from the Python source code using [Carbon](https://carbon.now.sh/). The following settings were used:
 	* Theme: One Light
 	* Background: white
