@@ -6,6 +6,8 @@ Each activity in the Meta-Stack features a thorough description, printable hando
 
 ## Activities
 
+_This collection is a young innitiative in progress. Therefore, there are currently only a few activities to see (and they may not be polished yet)._
+
 * [Code review](activities/code-review) -- The students formatively assess program code.
 
 ## Contact us and join our efforts
