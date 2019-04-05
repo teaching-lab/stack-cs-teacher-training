@@ -1,0 +1,13 @@
+# Insert a @value into @tree (reurn modified tree).
+# If @tree is not a valid binary search tree, output is undefined.
+# If @tree already contains @value, returns @tree.
+Tree insert(Tree tree, Int value);
+
+# Delete a @value from @tree (reurn modified tree).
+# If @tree is not a valid binary search tree, output is undefined.
+# If @tree does not contain @value, returns @tree.
+Tree delete(Tree tree, Int value);
+
+# Check if @value is present in @tree (return True/False).
+# If @tree is not a valid binary search tree, output is undefined.
+Bool lookup(Tree tree, Int value);
